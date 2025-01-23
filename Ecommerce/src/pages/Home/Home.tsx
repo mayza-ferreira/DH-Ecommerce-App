@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Hero } from "../../Components/ui/Hero/Hero";
-
+import { Hero } from "../../Components/ui/Hero";
+import styles from "./Home.module.css";
+import { CardProduct } from "../../Components/ui/CardProduct";
 const Home = () => {
   const [products, setProducts] = useState([]);
   const getProducts = async () => {
@@ -21,6 +22,11 @@ const Home = () => {
   return (
     <>
       <Hero />
+      <div className={styles.container}>
+        {products.map((product) => (
+          <CardProduct key={product.tail} product={product} />
+        ))}
+      </div>
     </>
   );
 };
