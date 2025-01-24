@@ -5,7 +5,7 @@ import { CartContext } from "../../../context/CartContext";
 export const CardProduct = ({ product }) => {
   const { dispatch } = useContext(CartContext);
   const item = {
-    id: product.tail,
+    id: product.id,
     name: product.name,
     image: product.image,
     quantity: 1,
