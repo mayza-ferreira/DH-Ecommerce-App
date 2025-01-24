@@ -2,7 +2,7 @@ import Logo from "../../../assets/logo.svg";
 import cartIcon from "../../../assets/cart.svg";
 import styles from "./Navbar.module.css";
 import { useState } from "react";
-import CartModal from "../CartModal/CartModal";
+import { CartModal } from "../CartModal/CartModal";
 export const Navbar = () => {
   const [showCartModal, setShowCartModal] = useState(false);
   const handleShowCartModal = () => {
