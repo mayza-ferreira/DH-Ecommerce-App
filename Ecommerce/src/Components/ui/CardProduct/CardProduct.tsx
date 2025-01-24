@@ -6,16 +6,24 @@ import { Product } from "../../../interface";
 interface Props {
   product: Product;
 }
+
+interface CardProduct {
+  id: number;
+  name: string;
+  image: string;
+  quantity: number;
+}
 export const CardProduct: FC<Props> = ({ product }) => {
   const { dispatch } = useContext(CartContext);
-  const item = {
+
+  const item: CardProduct = {
     id: product.id,
     name: product.name,
     image: product.image,
     quantity: 1,
   };
 
-  const addToCart = (item: Product) => {
+  const addToCart = (item: CardProduct) => {
     dispatch({ type: "ADD_TO_CART", payload: item });
   };
 
