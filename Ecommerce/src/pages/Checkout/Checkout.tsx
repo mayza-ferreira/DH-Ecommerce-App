@@ -1,3 +1,4 @@
+import { CardCredit } from "../../Components/ui/CardCredit/CardCredit";
 import { Table } from "../../Components/ui/Table/Table";
 import styles from "./Checkout.module.css";
 const Checkout = () => {
@@ -8,7 +9,9 @@ const Checkout = () => {
         <div className={styles.tableContainer}>
           <Table />
         </div>
-        <div>{/* Formulario Tarjeta */}</div>
+        <div>
+          <CardCredit />
+        </div>
       </div>
     </div>
   );
