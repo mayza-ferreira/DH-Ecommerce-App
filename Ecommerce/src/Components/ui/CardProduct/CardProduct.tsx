@@ -36,7 +36,7 @@ export const CardProduct: FC<Props> = ({ product }) => {
         <div className={styles.cardBody}>
           <p className={styles.cardType}>{product.type}</p>
           <p className={styles.cardPrice}>
-            price, <small>00</small>
+            $<small>{product.price}</small>
           </p>
         </div>
         <button className={styles.cardButton} onClick={() => addToCart(item)}>

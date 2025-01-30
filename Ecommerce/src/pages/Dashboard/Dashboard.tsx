@@ -1,13 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./Dashboard.module.css";
 import { useEffect, useState } from "react";
+import { useMutation } from "react-query";
+import { Product } from "../../interface";
+import { createProduct } from "../../service";
 
 const Dashboard = () => {
   const [product, setProduct] = useState({
     amiiboSeries: "",
     character: "",
     gameSeries: "",
-    head: 0,
+    head: "",
     image: "",
     name: "",
     releaseDate: "",
@@ -37,9 +40,13 @@ const Dashboard = () => {
     });
   };
 
+  const mutation = useMutation((newProduct: Product) => {
+    return createProduct(newProduct);
+  });
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(product);
+    mutation.mutate(product);
   };
 
   return (
@@ -70,7 +77,7 @@ const Dashboard = () => {
             type="text"
             id="character"
             name="character"
-            value={product.characterValue}
+            value={product.character}
             onChange={handleChange}
             required
           />
@@ -91,7 +98,7 @@ const Dashboard = () => {
         <div className={styles.formControlLogin}>
           <label htmlFor="head">Head</label>
           <input
-            type="number"
+            type="text"
             id="head"
             name="head"
             value={product.head}
