@@ -40,7 +40,7 @@ const Home = () => {
           className={styles.paginationButton}
           disabled={page === 1}
         >
-          previus page
+          previous page
         </button>
         <div className={styles.paginationActive}>
           <span>{page}</span>
